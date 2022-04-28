@@ -1,7 +1,21 @@
 ﻿var from = 10;
 let count = 10;
-
-
+$(window).resize(function(){
+   firstLoads();
+   $(window).resize(function(){});
+});
+$(document).ready(function () {
+    firstLoads();
+});
+function firstLoads()
+{
+    let blockHeight = document.querySelector('.masks').offsetHeight;
+    let windowHeight = window.innerHeight;
+    if (blockHeight < windowHeight) {
+        GetAdditionalMasks(from, count);
+        from += count;
+    }
+}
 window.addEventListener('scroll', onScroll)
 
 function onScroll() {
@@ -31,6 +45,11 @@ function GetAdditionalMasks(from, count) {
             if (response.length < 10) {
                 return;
             }
+            firstLoads();
+            $(window).resize(function(){
+                firstLoads();
+                $(window).resize(function(){});
+             });
             $(".masks").html($(".masks").html() + response)
             window.addEventListener('scroll', onScroll)
         },

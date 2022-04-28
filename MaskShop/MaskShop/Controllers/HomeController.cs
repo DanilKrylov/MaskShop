@@ -18,7 +18,7 @@ namespace MaskShop.Controllers
         public IActionResult Index()
         {
             ViewBag.UserName = ControllerContext.HttpContext.Session.GetString("name");
-            var masks = _maskRepository.GetMasksInRange(0, 10).ToList();
+            var masks = _maskRepository.GetMasksInRange(0, 20).ToList();
 
             return View(masks);
         }

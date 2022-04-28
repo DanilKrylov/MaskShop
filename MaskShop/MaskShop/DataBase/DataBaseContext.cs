@@ -19,14 +19,14 @@ namespace MaskShop.DataBase
 
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var masks = new Mask[45];
+            var masks = new Mask[1000];
 
-            for(int i = 0; i < 45; i++)
+            for(int i = 0; i < 1000; i++)
             {
                 masks[i] = new Mask("Mask" + (i + 1).ToString(), "s;alds;adls;adl'sl;aldlsa;ldldsldsa;dlald;ald;asld;asld", 123.4m, 25)
                 {

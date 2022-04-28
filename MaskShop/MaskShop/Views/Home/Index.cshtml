@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+@model IEnumerable<Mask>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <a asp-action="Registration" asp-controller="Registration"> reg </a>
+    <div class="masks">
+        @{
+            foreach (Mask mask in Model)
+            {
+                <div>
+                    <div>@mask.Name</div>
+                    <div>@mask.Count</div>
+                    <div>@mask.Price</div>
+                    <div>@mask.Description</div>
+                </div>
+                <div>
+
+                </div>
+            }
+        }
+    </div>
+</body>
+</html>
